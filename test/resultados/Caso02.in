@@ -1,0 +1,65 @@
+listarCDPs
+listarPaquetes
+listarTramos
+ingresarCentro MVD Uruguay Montevideo 1
+ingresarCentro MVD YaExiste YaExiste 1
+ingresarTramo PDU MVD 100
+ingresarTramo MVD PDU 100
+ingresarCentro PDU Uruguay Paysandu 3
+ingresarTramo MVD PDU 100
+ingresarPaquete paq01 ATI MVD 5 [ costo ]
+ingresarPaquete paq01 MVD ATI 5 [ costo ]
+ingresarCentro STY Uruguay Salto 2
+ingresarCentro ATI Uruguay Artigas 3
+ingresarTramo PDU STY 50
+ingresarTramo STY ATI 80
+infoCDP MLZ
+infoCDP MVD
+ingresarPaquete paq01 MVD ATI 2 [ costo ]
+ingresarPaquete paq01 MVD ATI 5 [ costo ]
+infoPaquete paq07
+infoPaquete paq01
+infoCDP MVD
+ingresarPaquete paq01 YaExiste YaExiste 5 [ costo ]
+ingresarPaquete paq02 MVD ATI 4 [ costo ]
+procesarPaquete paq07
+procesarPaquete paq01
+imprimirRutasOrigDest MVD MLZ 5
+imprimirRutasOrigDest MLZ MVD 5
+imprimirRutasOrigDest MVD ATI 2
+imprimirRutasOrigDest MVD ATI 5
+imprimirRutaOpOrigDest MVD MLZ 5
+imprimirRutaOpOrigDest MLZ MVD 5
+imprimirRutaOpOrigDest MVD ATI 2
+imprimirRutaOpOrigDest MVD ATI 5
+removerTramo MLZ MVD
+removerTramo MVD MLZ
+removerTramo MVD ATI
+removerTramo PDU STY
+procesarPaquete paq01
+listarCDPs
+listarPaquetes
+listarTramos
+infoTramo MVD MLZ
+infoTramo MLZ MVD
+infoTramo MVD ATI
+infoTramo MVD PDU
+infoCDPActualPaquete paq01
+ingresarCentro MLZ Melo Montevideo 6
+ingresarTramo PDU MLZ 30
+ingresarTramo MLZ STY 40
+recalcularRuta paq07
+recalcularRuta paq01
+infoPaquete paq01
+procesarPaquete paq01
+infoPaquete paq01
+procesarPaquetesCentro NoExiste
+procesarPaquetesCentro MLZ
+infoPaquete paq01
+guardar Caso02.psal
+cargar Caso02.pin
+listarCDPs
+listarPaquetes
+infoPaquete paq01
+listarTramos
+salir

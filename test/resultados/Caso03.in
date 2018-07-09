@@ -1,0 +1,65 @@
+ingresarCentro ORI1 Uruguay Origen1 1
+ingresarCentro ORI2 Uruguay Origen2 1
+ingresarCentro ORI3 Uruguay Origen3 1
+ingresarCentro A Uruguay A 1
+ingresarCentro B Uruguay B 1
+ingresarCentro C Uruguay C 1
+ingresarCentro D Uruguay D 4
+ingresarCentro E Uruguay E 5
+ingresarCentro DEST1 Uruguay Destino1 1
+ingresarCentro DEST2 Uruguay Destino2 1
+ingresarCentro DEST3 Uruguay Destino3 1
+listarCDPs
+ingresarTramo ORI1 A 70
+ingresarTramo ORI2 B 80
+ingresarTramo ORI3 B 90
+ingresarTramo A B 20
+ingresarTramo B C 10
+ingresarTramo A D 100
+ingresarTramo C D 10
+ingresarTramo C E 30
+ingresarTramo D DEST1 50
+ingresarTramo B DEST2 400
+ingresarTramo C DEST2 50
+ingresarTramo B DEST3 200
+ingresarTramo E DEST3 20
+listarTramos
+ingresarPaquete paq1 ORI1 DEST1 11 [ costo ]
+ingresarPaquete paq2 ORI2 DEST2 11 [ costo ]
+ingresarPaquete paq3 ORI3 DEST3 11 [ costo ]
+infoPaquete paq1
+infoPaquete paq2
+infoPaquete paq3
+infoCDPActualPaquete paq1
+infoCDP ORI1
+infoCDP A
+procesarPaquete paq1
+infoCDPActualPaquete paq1
+infoCDP ORI1
+infoCDP A
+infoCDP B
+procesarPaquete paq1
+infoCDPActualPaquete paq1
+infoCDP B
+infoCDP C
+procesarPaquete paq1
+infoCDPActualPaquete paq1
+infoCDP C
+infoCDP D
+procesarPaquete paq1
+infoCDPActualPaquete paq1
+infoCDP D
+infoCDP DEST1
+procesarPaquete paq1
+infoCDPActualPaquete paq1
+infoCDP D
+infoCDP DEST1
+procesarPaquete paq2
+removerTramo B C
+recalcularRuta paq2
+infoPaquete paq2
+procesarPaquete paq2
+procesarPaquete paq3
+recalcularRuta paq3
+infoPaquete paq3
+salir

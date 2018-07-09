@@ -1,0 +1,79 @@
+DEFINITION MODULE LstIdsCDP;
+(******************************************************************************
+Modulo de definicion de LstIdsCDP.
+
+El TAD LstIdsCDP representa las listas de elementos de tipo TIdCDP.
+
+Laboratorio de Programacion 2.
+InCo-FI-UDELAR
+******************************************************************************)
+
+
+FROM CDP IMPORT TIdCDP;
+
+TYPE
+   LstIdsCDP; (* Opaco *)
+
+(************ Constructoras *************)
+
+PROCEDURE CrearLstIdsCDP (): LstIdsCDP;
+(* Devuelve la lista vacia. *)
+
+PROCEDURE InsertarTIdCDP (t: TIdCDP; VAR lt: LstIdsCDP);
+(* Inserta el elemento 't' al final de 'lt'. *)
+
+
+PROCEDURE MergeLstIdsCDP (VAR l1, l2: LstIdsCDP);
+(* Precondicion: 'l1' y 'l2' son listas ordenadas de manera creciente sin elementos
+ repetidos.
+ Devuelve en 'l1' una lista ordenada sin elementos repetidos con todos los
+ TIdCDP que inicialmente estaban en 'l1' o 'l2'.
+ Devuelve en 'l2' una lista ordenada sin elementos repetidos con todos los
+ TIdCDP que estaban en 'l1' y 'l2'.
+ En esta operacion no se obtiene ni libera memoria. *)
+
+
+
+(************ Predicados ****************)
+
+PROCEDURE EsVaciaLstIdsCDP (lt: LstIdsCDP): BOOLEAN;
+(* Devuelve TRUE si 'lt' es vacía, FALSE en otro caso. *)
+
+PROCEDURE PerteneceLstIdsCDP (id: TIdCDP; lt: LstIdsCDP): BOOLEAN;
+(* Devuelve TRUE si 'id' pertenece a 'lt', FALSE en otro caso. *)
+
+
+(************ Selectoras  ****************)
+
+PROCEDURE PrimeroLstIdsCDP (lt: LstIdsCDP): TIdCDP;
+(* Precondicion: NOT EsVaciaLstIdsCDP (lt).
+ Devuelve el primer elemento de 'lt'. *)
+
+PROCEDURE RestoLstIdsCDP (lt: LstIdsCDP): LstIdsCDP;
+(* Precondicion: NOT EsVaciaLstIdsCDP (lt).
+ Devuelve 'lt' sin el primer elemento. *)
+
+
+(************ Salida  **************)
+PROCEDURE ImprimirLstIdsCDP (lt: LstIdsCDP);
+(* Imprime todos los identificadores que pertenecen a 'lt'con un espacio en
+ blanco despues de cada elemento. 
+ Imprime un nueva linea al final. *)
+ 
+
+
+(************ Destructoras **************)
+
+PROCEDURE EliminarLstIdsCDP (id: TIdCDP; VAR lt: LstIdsCDP);
+(* Precondicion: PerteneceLstIdsCDP (id, lt). 
+  Remueve de 'lt' el identificador 'id'. Libera la memoria asignada al 
+  elemento removido. *)
+
+PROCEDURE DestruirLstIdsCDP (VAR lt: LstIdsCDP);
+(* Libera la memoria asignada a'lt' y sus elementos. *)
+
+
+
+
+
+END LstIdsCDP.

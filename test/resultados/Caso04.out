@@ -1,0 +1,44 @@
+Bienvenidos a InCorreoProg2
+version 1.0
+InCo-FIng-UdelaR
+
+1> El CDP fue dado de alta
+2> El CDP fue dado de alta
+3> El CDP fue dado de alta
+4> El CDP fue dado de alta
+5> El tramo fue dado de alta
+6> El tramo fue dado de alta
+7> El tramo fue dado de alta
+8> El tramo fue dado de alta
+9> El paquete fue dado de alta
+10> El paquete fue dado de alta
+11> No existe un paquete con este identificador
+12> La capacidad del CDP esta agotada
+13> No existe un paquete con este identificador
+14> No existe ruta que cumpla las condiciones especificadas
+15> No existe un CDP con el identificador indicado
+16> No existe un CDP con el identificador indicado como destino
+17> No existe un tramo con este origen y destino
+18> El tramo fue dado de baja
+19> No existe un tramo con este origen y destino
+20> No existe ruta que cumpla las condiciones especificadas
+21> El tramo fue dado de alta
+22> La ruta ha sido recalculada
+23> El paquete se encuentra en el centro de origen
+24> El paquete fue procesado
+25> El paquete se encuentra en transito en el centro STY
+26> El paquete fue procesado
+27> El tramo fue dado de alta
+28> El paquete fue procesado
+29> El paquete fue procesado y ha llegado a su destino
+30> No existe un paquete con este identificador
+31> El paquete fue dado de alta
+32> El paquete fue procesado
+33> El tramo fue dado de baja
+34> El tramo fue dado de alta
+35> No existe ruta que cumpla las condiciones especificadas
+36> La ruta ha sido recalculada
+37> El paquete fue procesado
+38> El paquete se encuentra en el centro de origen
+39> El paquete fue procesado y ha llegado a su destino
+40> Fin!

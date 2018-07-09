@@ -1,0 +1,102 @@
+DEFINITION MODULE ABBPaquetes;
+(******************************************************************************
+Modulo de definicion de ABBPaquetes.
+
+El TAD ABBPaquetes define un arbol binario de busqueda cuyos elementos son
+del tipo abstracto de datos Paquete.
+El arbol esta ordenado por el identificador del Paquete.
+La coleccion de paquetes del sistema se mantiene en una estructura de este
+tipo.
+
+Laboratorio de Programacion 2.
+InCo-FI-UDELAR
+******************************************************************************)
+
+FROM Paquete IMPORT Paquete, TIdPaquete;
+FROM LstIdsCDP IMPORT LstIdsCDP; 
+
+
+TYPE
+    ABBPaquetes; (* Opaco *)
+
+
+
+(************ Constructoras *************)
+
+PROCEDURE CrearABBPaquetes (): ABBPaquetes;
+(* Devuelve el arbol vacio. *)
+
+PROCEDURE InsertarABBPaquetes (p: Paquete; VAR abb: ABBPaquetes);
+(* Precondicion: NOT PerteneceABBPaquetes (IdPaquete(p), abb).
+   Inserta el Paquete 'p' en el arbol 'abb'. *)
+
+
+
+(************ Predicados ****************)
+
+PROCEDURE EsVacioABBPaquetes (abb: ABBPaquetes): BOOLEAN;
+(* Devuelve TRUE si el arbol 'abb' es vacio, FALSE en otro caso. *)
+
+PROCEDURE PerteneceABBPaquetes (id: TIdPaquete;
+                                abb: ABBPaquetes): BOOLEAN;
+(* Devuelve TRUE si en el arbol 'abb' existe un Paquete cuyo identificador es
+ 'id', FALSE en otro caso. *)
+
+
+
+(************ Selectoras ****************)
+
+PROCEDURE RaizABBPaquetes (abb: ABBPaquetes): Paquete;
+(* Precondicion: NOT EsVacioABBPaquetes (abb).
+   Devuelve el elemento raiz del arbol 'abb'. *)
+
+PROCEDURE IzqABBPaquetes (abb: ABBPaquetes): ABBPaquetes;
+(* Precondicion: NOT EsVacioABBPaquetes (abb).
+   Devuelve el sub-arbol izquierdo de 'abb'. *)
+
+PROCEDURE DerABBPaquetes (abb: ABBPaquetes): ABBPaquetes;
+(* Precondicion: NOT EsVacioABBPaquetes (abb).
+   Devuelve el sub-arbol derecho de 'abb'. *)
+
+PROCEDURE PaqueteABBPaquetes (id: TIdPaquete;
+                              abb: ABBPaquetes): Paquete;
+(* Precondicion: PerteneceABBPaquetes (id, abb).
+   Devuelve el Paquete en 'abb' cuyo identificador es 'id'. *)
+
+
+PROCEDURE CDPsActualABBPaquetes (abb: ABBPaquetes): LstIdsCDP;
+(* Devuelve una lista ordenada de manera creciente y sin elementos repetidos
+  con los identificadores de los CDPs que son posicion actual de la ruta de
+  algun paquete de 'abb'. *)
+
+
+
+(************ Salida ********************)
+
+PROCEDURE ImprimirABBPaquetes (abb: ABBPaquetes);
+(* Imprime los identificadores de cada Paquete del arbol 'abb' en orden creciente 
+   Se incluye una nueva linea luego de la impresion de cada elemento.
+   La impresion se debe indentar segun el nivel de profundidad (la raíz
+   sin espacios y luego se suma un espacio por cada nivel de profundidad).
+   Si el arbol es vacio no se imprime nada. *)
+
+
+
+(************ Destructoras **************)
+
+PROCEDURE EliminarABBPaquetes (id: TIdPaquete; VAR abb: ABBPaquetes);
+(* Precondicion: PerteneceABBPaquetes (id, abb).
+   Remueve de 'abb' el paquete cuyo identificador es 'id'.
+   Libera la memoria asociada al paquete removido.
+   Si el nodo en el que esta el paquete a eliminar tiene un subarbol derecho
+   no vacio, se coloca en lugar del paquete eliminado el menor paquete de ese 
+   subarbol derecho. 
+   Si eso no ocurre y el nodo referido tiene un subarbol izquierdo no vacio,
+   se coloca en lugar del paquete eliminado el mayor paquete de ese subarbol
+   izquierdo.
+   En otro caso, ese lugar queda vacío.   *)
+
+PROCEDURE DestruirABBPaquetes (VAR abb: ABBPaquetes);
+(* Libera la memoria reservada para el arbol 'abb' y sus elementos. *)
+
+END ABBPaquetes.

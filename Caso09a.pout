@@ -1,0 +1,24 @@
+CENTROS:
+2
+A
+Uruguay
+A
+0
+B
+Uruguay
+B
+1
+TRAMOS:
+1
+A
+B
+20
+PAQUETES:
+1
+paq1
+[ costo ]
+2
+2
+1
+A
+B

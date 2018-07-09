@@ -1,0 +1,40 @@
+ingresarCentro MVD Uruguay Montevideo 1
+ingresarCentro PDU Uruguay Paysandu 3
+ingresarCentro STY Uruguay Salto 2
+ingresarCentro ATI Uruguay Artigas 1
+ingresarTramo MVD PDU 100
+ingresarTramo PDU STY 50
+ingresarTramo STY ATI 80
+ingresarTramo ATI MVD 80
+ingresarPaquete paq02 ATI STY 3 [ costo ]
+ingresarPaquete paq01 MVD ATI 3 [ costo ]
+procesarPaquete paq2
+procesarPaquete paq02
+recalcularRuta paq2
+recalcularRuta paq02
+removerTramo PDu MV
+removerTramo PDU MV
+removerTramo PDU MVD
+removerTramo MVD PDU
+procesarPaquete paq01
+recalcularRuta paq01
+ingresarTramo MVD STY 180
+recalcularRuta paq01
+infoCDPActualPaquete paq01
+procesarPaquete paq01
+infoCDPActualPaquete paq01
+procesarPaquete paq02
+ingresarTramo MVD PDU 100
+procesarPaquete paq02
+procesarPaquete paq01
+infoCDPActualPaquete paq01
+ingresarPaquete paq03 MVD STY 3 [ costo ]
+procesarPaquete paq03
+removerTramo PDU STY 
+ingresarTramo PDU MVD 50
+recalcularRuta paq02
+recalcularRuta paq03
+procesarPaquete paq03
+infoCDPActualPaquete paq03
+procesarPaquete paq03
+salir

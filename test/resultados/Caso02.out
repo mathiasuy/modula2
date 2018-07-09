@@ -1,0 +1,134 @@
+Bienvenidos a InCorreoProg2
+version 1.0
+InCo-FIng-UdelaR
+
+1> No hay CDPs ingresados en el sistema
+2> No existen paquetes en el sistema
+3> No existen tramos en el sistema
+4> El CDP fue dado de alta
+5> Ya existe un CDP con este identificador
+6> No existe un CDP con el identificador indicado
+7> No existe un CDP con el identificador indicado como destino
+8> El CDP fue dado de alta
+9> El tramo fue dado de alta
+10> No existe un CDP con el identificador indicado
+11> No existe un CDP con el identificador indicado como destino
+12> El CDP fue dado de alta
+13> El CDP fue dado de alta
+14> El tramo fue dado de alta
+15> El tramo fue dado de alta
+16> No existe un CDP con el identificador indicado
+17> MVD
+Uruguay
+Montevideo
+1
+18> No existe ruta que cumpla las condiciones especificadas
+19> El paquete fue dado de alta
+20> No existe un paquete con este identificador
+21> paq01
+[ costo ]
+5
+4
+1
+MVD
+PDU
+STY
+ATI
+22> MVD
+Uruguay
+Montevideo
+0
+23> Ya existe un paquete con este identificador
+24> La capacidad del CDP esta agotada
+25> No existe un paquete con este identificador
+26> El paquete fue procesado
+27> No existe un CDP con el identificador indicado como destino
+28> No existe un CDP con el identificador indicado
+29> No existe ruta que cumpla las condiciones especificadas
+30> 
+ATI
+ STY
+  PDU
+   MVD
+31> No existe un CDP con el identificador indicado como destino
+32> No existe un CDP con el identificador indicado
+33> No existe ruta que cumpla las condiciones especificadas
+34> 4
+1
+MVD
+PDU
+STY
+ATI
+35> No existe un CDP con el identificador indicado
+36> No existe un CDP con el identificador indicado como destino
+37> No existe un tramo con este origen y destino
+38> El tramo fue dado de baja
+39> No existe un tramo con este origen y destino
+40> ATI MVD PDU STY 
+41> paq01
+42> MVD-PDU
+STY-ATI
+43> No existe un CDP con el identificador indicado como destino
+44> No existe un CDP con el identificador indicado
+45> No existe un tramo con este origen y destino
+46> MVD
+PDU
+100
+47> El paquete se encuentra en transito en el centro PDU
+48> El CDP fue dado de alta
+49> El tramo fue dado de alta
+50> El tramo fue dado de alta
+51> No existe un paquete con este identificador
+52> La ruta ha sido recalculada
+53> paq01
+[ costo ]
+5
+5
+2
+MVD
+PDU
+MLZ
+STY
+ATI
+54> El paquete fue procesado
+55> paq01
+[ costo ]
+5
+5
+3
+MVD
+PDU
+MLZ
+STY
+ATI
+56> No existe un CDP con el identificador indicado
+57> paq01 - El paquete fue procesado
+58> paq01
+[ costo ]
+5
+5
+4
+MVD
+PDU
+MLZ
+STY
+ATI
+59> Los datos han sido guardados
+60> Los datos han sido cargados
+61> ATI MLZ MVD PDU STY 
+62> paq01
+63> paq01
+[ costo ]
+5
+5
+4
+MVD
+PDU
+MLZ
+STY
+ATI
+64> MLZ-STY
+MVD-PDU
+PDU-MLZ
+STY-ATI
+65> Fin!

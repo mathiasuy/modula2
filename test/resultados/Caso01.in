@@ -1,0 +1,31 @@
+ingresarCentro UY Uruguay Montevideo 100
+ingresarCentro AR Argentina Cordoba 50
+ingresarCentro BR Brasil Pelotas 80
+ingresarCentro PY Paraguay Asuncion 30
+ingresarTramo UY AR 30
+ingresarTramo AR BR 80
+ingresarTramo AR PY 20
+ingresarTramo BR PY 50
+ingresarPaquete 1 UY AR 3 [ costo ]
+ingresarPaquete 2 UY BR 3 [ costo ]
+ingresarPaquete 3 AR BR 3 [ costo ]
+ingresarPaquete 4 UY PY 3 [ costo ]
+procesarPaquete 1
+procesarPaquete 3
+procesarPaquete 4
+removerTramo AR PY
+recalcularRuta 4
+procesarPaquetesCentro AR
+procesarPaquetesCentro UY
+listarCDPs
+listarPaquetes
+listarTramos
+imprimirRutasOrigDest UY PY 5
+imprimirRutaOpOrigDest UY BR 5
+infoCDP UY
+infoPaquete 4
+infoTramo UY AR
+infoCDPActualPaquete 4
+guardar Caso01.psal
+cargar Caso01.psal
+salir

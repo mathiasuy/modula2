@@ -1,0 +1,54 @@
+DEFINITION MODULE ColaToken;
+(*******************************************************************************
+Módulo de definicion de ColaToken.
+
+El TAD ColaToken define una Cola cuyos elementos son del tipo abstracto
+de datos Token.
+
+Laboratorio de Programación 2.
+InCo-FI-UDELAR
+*******************************************************************************)
+
+FROM Token IMPORT Token;
+
+
+TYPE
+        ColaToken; (* Opaco *)
+
+(************ Constructoras *************)
+
+PROCEDURE CrearColaToken(): ColaToken;
+(* Devuelve la Cola vacía. *)
+
+PROCEDURE EncolarColaToken (t: Token; VAR c: ColaToken);
+(* Inserta el Token 't' al final de la cola 'c'. *)
+
+(************ Predicados ****************)
+
+PROCEDURE EsVaciaColaToken (c: ColaToken): BOOLEAN;
+(* Devuelve TRUE si la Cola 'c' es vacía, FALSE en otro caso. *)
+
+
+(************ Selectoras ****************)
+
+PROCEDURE PrimeroColaToken (c: ColaToken): Token;
+(* Precondicion: NOT EsVaciaColaToken (c).
+   Devuelve el primer elemento de la Cola 'c'. *)
+
+PROCEDURE DesencolarColaToken (VAR c: ColaToken);
+(* Precondicion: NOT EsVaciaColaToken (c).
+   Quita el primer elemento de la Cola 'c'. *)
+   
+   
+(********** Salida **********************)
+PROCEDURE ImprimirColaToken(c : ColaToken);
+(* Imprime en la salida estandar la Cola Token c. 
+ Se imprime un espacio entre cada Token*)
+
+
+(************ Destructoras **************)
+
+PROCEDURE DestruirColaToken (VAR c: ColaToken);
+(* Libera la memoria reservada por la Cola y sus elementos. *)
+
+END ColaToken.

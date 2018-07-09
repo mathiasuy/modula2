@@ -1,0 +1,161 @@
+Bienvenidos a InCorreoProg2
+version 1.0
+InCo-FIng-UdelaR
+
+1> El CDP fue dado de alta
+2> El CDP fue dado de alta
+3> El CDP fue dado de alta
+4> El CDP fue dado de alta
+5> El CDP fue dado de alta
+6> El CDP fue dado de alta
+7> El CDP fue dado de alta
+8> El CDP fue dado de alta
+9> El CDP fue dado de alta
+10> El CDP fue dado de alta
+11> El CDP fue dado de alta
+12> A B C D DEST1 DEST2 DEST3 E ORI1 ORI2 ORI3 
+13> El tramo fue dado de alta
+14> El tramo fue dado de alta
+15> El tramo fue dado de alta
+16> El tramo fue dado de alta
+17> El tramo fue dado de alta
+18> El tramo fue dado de alta
+19> El tramo fue dado de alta
+20> El tramo fue dado de alta
+21> El tramo fue dado de alta
+22> El tramo fue dado de alta
+23> El tramo fue dado de alta
+24> El tramo fue dado de alta
+25> El tramo fue dado de alta
+26> A-B
+A-D
+B-C
+B-DEST2
+B-DEST3
+C-D
+C-DEST2
+C-E
+D-DEST1
+E-DEST3
+ORI1-A
+ORI2-B
+ORI3-B
+27> El paquete fue dado de alta
+28> El paquete fue dado de alta
+29> El paquete fue dado de alta
+30> paq1
+[ costo ]
+11
+6
+1
+ORI1
+A
+B
+C
+D
+DEST1
+31> paq2
+[ costo ]
+11
+4
+1
+ORI2
+B
+C
+DEST2
+32> paq3
+[ costo ]
+11
+5
+1
+ORI3
+B
+C
+E
+DEST3
+33> El paquete se encuentra en el centro de origen
+34> ORI1
+Uruguay
+Origen1
+0
+35> A
+Uruguay
+A
+1
+36> El paquete fue procesado
+37> El paquete se encuentra en transito en el centro A
+38> ORI1
+Uruguay
+Origen1
+1
+39> A
+Uruguay
+A
+0
+40> B
+Uruguay
+B
+1
+41> El paquete fue procesado
+42> El paquete se encuentra en transito en el centro B
+43> B
+Uruguay
+B
+0
+44> C
+Uruguay
+C
+1
+45> El paquete fue procesado
+46> El paquete se encuentra en transito en el centro C
+47> C
+Uruguay
+C
+0
+48> D
+Uruguay
+D
+4
+49> El paquete fue procesado
+50> El paquete se encuentra en transito en el centro D
+51> D
+Uruguay
+D
+3
+52> DEST1
+Uruguay
+Destino1
+1
+53> El paquete fue procesado y ha llegado a su destino
+54> No existe un paquete con este identificador
+55> D
+Uruguay
+D
+4
+56> DEST1
+Uruguay
+Destino1
+1
+57> El paquete fue procesado
+58> El tramo fue dado de baja
+59> La ruta ha sido recalculada
+60> paq2
+[ costo ]
+11
+3
+2
+ORI2
+B
+DEST2
+61> El paquete fue procesado y ha llegado a su destino
+62> El paquete fue procesado
+63> La ruta ha sido recalculada
+64> paq3
+[ costo ]
+11
+3
+2
+ORI3
+B
+DEST3
+65> Fin!

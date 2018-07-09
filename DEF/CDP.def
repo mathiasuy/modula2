@@ -1,0 +1,79 @@
+DEFINITION MODULE CDP;
+(******************************************************************************
+Modulo de definicion de CDP.
+
+El TAD CDP define el Centro de Distribucion de Paquetes.
+Los mismos contiene la siguiente informacion:
+  - Identificador del Centro (IdCDP)
+  - Capacidad actual
+  - Pais
+  - Ciudad
+
+
+Laboratorio de Programacion 2.
+InCo-FI-UDELAR
+******************************************************************************)
+(* NUEVO *)
+FROM IOChan IMPORT ChanId;
+
+CONST
+    MAX_LARGO_ID_CDP      = 15;
+    MAX_LARGO_PAIS_CIUDAD = 31;
+
+
+TYPE
+    CDP; (* Opaco *)
+    TIdCDP = ARRAY [0..MAX_LARGO_ID_CDP] OF CHAR;
+    TCiudadPais = ARRAY[0..MAX_LARGO_PAIS_CIUDAD] OF CHAR;
+
+(************ Constructoras *************)
+
+PROCEDURE CrearCDP (id: TIdCDP;
+		   capActual: CARDINAL;
+		   pais, ciudad: TCiudadPais): CDP;
+(* Devuelve un nuevo centro de distribucion de paquetes. *)
+
+
+(************ Selectoras ****************)
+
+PROCEDURE IdCDP (c: CDP): TIdCDP;
+(* Devuelve el identificador de 'c'. *)
+
+PROCEDURE CapacidadActualCDP (c: CDP): CARDINAL;
+(* Devuelve la capacidad actual de 'c'. *)
+
+PROCEDURE PaisCDP (c: CDP): TCiudadPais;
+(* Devuelve el pais de 'c'. *)
+
+PROCEDURE CiudadCDP (c: CDP): TCiudadPais;
+(* Devuelve la ciudad de 'c'. *)
+
+(************ Operaciones ****************)
+
+PROCEDURE AumentarCapacidadActualCDP (VAR c: CDP);
+(* Aumenta en 1 la capacidad actual de 'c'. *)
+
+PROCEDURE DisminuirCapacidadActualCDP (VAR c: CDP);
+(* Precondicion: La capacidad actual es mayor a 0. 
+  Disminuye en 1 la capacidad actual de 'c'. *)
+
+
+(************ Salida ********************)
+
+(* MODIFICADO *)
+PROCEDURE ImprimirCDP (c: CDP; cid : ChanId);
+(* Imprime los datos de 'c' en el canal 'cid':
+   Id
+   Pais
+   Ciudad
+   CapacidadActual
+
+   Se incluye un nueva linea luego de la impresión de cada campo. *)
+
+(************ Destructoras **************)
+
+PROCEDURE DestruirCDP (VAR c: CDP);
+(* Libera la memoria asignada a  'c'. *)
+
+
+END CDP.

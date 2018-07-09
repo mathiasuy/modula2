@@ -1,0 +1,64 @@
+DEFINITION MODULE CnjCDPs;
+(******************************************************************************
+Modulo de definicion de CnjCDPs.
+
+El TAD CnjCDPs representa la coleccion de los CDPs del sistema.
+No hay dos CDPs con el mismo identificador.
+
+Laboratorio de Programacion 2.
+InCo-FI-UDELAR
+******************************************************************************)
+
+
+FROM CDP IMPORT TIdCDP, CDP;
+
+FROM LstIdsCDP IMPORT LstIdsCDP;
+
+TYPE
+   CnjCDPs; (* Opaco *)
+	
+(************ Constructoras *************)
+
+PROCEDURE CrearCnjCDPs (): CnjCDPs;
+(* Devuelve la estructura vacia. *)
+
+PROCEDURE InsertarCnjCDPs (centro: CDP; VAR c: CnjCDPs);
+(* Precondicion: NOT PerteneceCnjCDPs(IdCDP(centro), c).
+   Inserta en 'c' el CDP 'centro'. *)
+
+
+(************ Predicados ****************)
+
+PROCEDURE EsVacioCnjCDPs (c: CnjCDPs): BOOLEAN;
+(* Devuelve TRUE si 'c' es vacío, FALSE en otro caso. *)
+
+
+PROCEDURE PerteneceCnjCDPs (id: TIdCDP; c: CnjCDPs): BOOLEAN;
+(* Devuelve TRUE si en 'c' hay un CDP con identificador 'id', FALSE en otro
+ caso. *)
+
+
+(************ Selectoras  ****************)
+
+PROCEDURE ObtenerCnjCDPs (id: TIdCDP; c: CnjCDPs): CDP;
+(* Precondicion: en 'c' hay un CDP con identificador 'id'. 
+ Devuelve el CDP con identificador 'id'. *)
+
+PROCEDURE IdsCnjCDPs (c: CnjCDPs): LstIdsCDP;
+(* Devuelve una lista con los TIdCDP que son identificadores de los centros
+ en 'c'. 
+  La lista devuelta debe estar en orden creciente. *)
+
+
+(************ Destructoras **************)
+
+PROCEDURE EliminarCnjCDPs (id: TIdCDP; VAR c: CnjCDPs);
+(* Precondicion: en 'c' hay un CDP con identificador 'id'.
+  Remueve de 'c' el CDP con identificador 'id'.
+  Libera la memoria asignada al CDP removido. *)
+
+PROCEDURE DestruirCnjCDPs (VAR c: CnjCDPs);
+(* Libera la memoria asignada por el conjunto 'c' y sus elementos. *)
+
+	
+END CnjCDPs.

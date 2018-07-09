@@ -1,0 +1,66 @@
+DEFINITION MODULE ManejadorPaquete;
+(******************************************************************************
+Modulo de definicion de ManejadorPaquete.
+
+Laboratorio de Programación 2.
+InCo-FI-UDELAR
+******************************************************************************)
+
+FROM Paquete  IMPORT Paquete;
+FROM TramosHabilitados IMPORT TramosHabilitados;
+FROM CnjCDPs  IMPORT CnjCDPs;
+FROM Prog2Out IMPORT TCodigoMensaje;
+FROM ABBPaquetes IMPORT ABBPaquetes;
+
+(* costo de un tramo removido al calcular el costo de una ruta *)
+CONST COSTO_REMOVIDO = 999;
+
+PROCEDURE CodigoProcesarPaquete (p: Paquete; th: TramosHabilitados; 
+                                 centros : CnjCDPs): TCodigoMensaje;
+
+(* Precondicion: Los CDP actual y proximo de la ruta del paquete 'p'
+   pertenecen a 'centros'.
+
+   Retorna el codigo del mensaje correspondiente a procesar el paquete 'p',
+   considerando los tramos habilitados 'th' y los CDP 'centros':
+   - En caso que el tramo que conecta con el proximo CDP ya no existe en el
+     sistema retorna MSG_111.
+   - En caso que la capacidad del proximo CDP sea cero retorna MSG_112.
+   - En caso de exito y que el paquete haya llegado a su destino 
+     retorna MSG_115.
+   - En caso de exito y que el paquete no haya llegado a su destino 
+     retorna MSG_113.
+
+   Aclaracion: Este procedimiento NO procesa el paquete. *)
+
+PROCEDURE AvanzarPaqueteCDP (p: Paquete; centros : CnjCDPs; 
+                               VAR paquetes: ABBPaquetes);
+(* Precondicion: Los CDP actual y proximo de la ruta del paquete 'p'
+   pertenecen a 'centros'.
+   Precondicion: El paquete no esta en su destino. 
+   Precondicion: La capacidad del proximo CDP es mayor que cero. 
+
+   Avanza 'p' al siguiente CDP de la ruta. 
+   Si despues de avanzar el paquete llego al destino, se elimina de la 
+   coleccion 'paquetes'. 
+   Se modifica las capacidades de los CDP actual y proximo.*)
+
+
+
+PROCEDURE PrioridadPaquete (p: Paquete; th: TramosHabilitados; 
+                            centros : CnjCDPs): INTEGER;
+
+(* Devuelve el valor de prioridad de 'p' considerando los valores 
+   actuales de las siguientes variables:
+   - costo    : costo de lo que queda de la ruta
+   - saltos   : saltos que quedan por realizar de la ruta
+   - capacidad: capacidad sumada de los CDP que quedan por visitar
+
+   Si la ruta es vacia, las variables tienen valor 0.
+   En lo que queda de la ruta, el costo de los tramos que han sido removidos
+   es COSTO_REMOVIDO.
+*)
+
+
+
+END ManejadorPaquete.

@@ -1,0 +1,83 @@
+DEFINITION MODULE CPrioPaquetes;
+(*******************************************************************************
+Modulo de definicion del TAD CPrioPaquetes.
+
+Una CPrioPaquetes representa una Cola de Prioridad de Paquetes.
+El TAD se DEBE implementar como un "d-ary heap", implementado con un arreglo.
+
+Laboratorio de Programacion 2.
+InCo-FIng-UDELAR
+*******************************************************************************)
+
+FROM Paquete IMPORT Paquete;
+
+
+(* maxima cantidad de paquetes *)
+CONST
+      MAXHEAP = 100;
+
+TYPE
+      CPrioPaquetes; (* opaco *)
+
+      
+
+(************ Constructoras *************)
+
+PROCEDURE CrearCPrioPaquetesVacia(d: CARDINAL) : CPrioPaquetes;
+(* Precondicion: 'd' > 0 y 'd' < MAXHEAP.
+   Devuelve una cola de prioridad vacia.
+   La misma se debe implementar como un d-ary heap. *)
+   
+PROCEDURE InsertarCPrioPaquetes (prio: INTEGER; p : Paquete; 
+                                 VAR c: CPrioPaquetes);
+(* Precondicion: NOT EsLLenaCPrioPaquetes(c).
+   Inserta el paquete 'p' con prioridad 'prio' en la cola de prioridad 'c'. 
+   El elemento insertado sube la menor cantidad de niveles posible. *)
+
+PROCEDURE CopiarCPrioPaquetes(c: CPrioPaquetes) : CPrioPaquetes;
+(* Devuelve una copia de la cola de prioridad 'c'.
+   Se comparte la memoria de los paquetes de 'c'. *)
+
+
+(************ Predicados ****************)
+
+PROCEDURE EsVaciaCPrioPaquetes (c: CPrioPaquetes): BOOLEAN;
+(* Devuelve TRUE si la CPrioPaquetes 'c' es vacia y FALSE en caso contrario. *)
+
+PROCEDURE EsLlenaCPrioPaquetes (c: CPrioPaquetes): BOOLEAN;
+(* Devuelve TRUE si la CPrioPaquetes 'c' esta llena y FALSE en caso contrario. 
+*)
+
+
+(************ Selectoras ****************)
+
+PROCEDURE ObtenerMinCPrioPaquetes (c: CPrioPaquetes): Paquete;
+(* Precondicion: NOT EsVaciaCPrioPaquetes(c).
+   Devuelve el paquete de la cola 'c' con menor numero de prioridad. *)
+
+
+
+(************ Salida ********************)
+
+PROCEDURE ImprimirCPrioPaquetes (c : CPrioPaquetes);
+(* Imprime en la salida estandar la estructura del heap 'c' segun el siguiente 
+   formato:
+   -Se imprimen los identificadores de los paquetes separados por 
+    un caracter '-' en el orden en que estan en el arreglo. 
+   -Al final se imprime un salto de linea. *)
+
+
+(************ Destructoras **************)
+
+PROCEDURE RemoverMinCPrioPaquetes (VAR c : CPrioPaquetes);
+(* Precondicion: NOT EsVaciaCPrioPaquetes (c).
+   Remueve de 'c' el paquete con menor numero de prioridad, sin destruirlo. 
+   Si al procesar una posicion mas de un hijo tiene el menor numero de 
+   prioridad, el que se considera para el intercambio es el que esta mas a la
+   izquierda. *)
+
+PROCEDURE DestruirCPrioPaquetes (VAR c: CPrioPaquetes);
+(* Libera la memoria reservada por la CPrioPaquetes 'c'.
+   No se libera la memoria reservada por los paquetes. *)
+
+END CPrioPaquetes.

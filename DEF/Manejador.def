@@ -1,0 +1,235 @@
+DEFINITION MODULE Manejador;
+(******************************************************************************
+Modulo de definicion de Manejador.
+
+El TAD Manejador implementa los procedimientos que resuelven los comandos del
+sistema y mantiene el estado del mismo.
+
+Laboratorio de Programacion 2.
+InCo-FI-UDELAR
+******************************************************************************)
+
+FROM CDP      IMPORT TIdCDP, TCiudadPais;
+FROM Paquete      IMPORT TIdPaquete;
+FROM CPrioPaquetes   IMPORT CPrioPaquetes;
+FROM Parametro     IMPORT Parametro;
+FROM ManejadorPersistencia IMPORT NombreArchivo;
+
+TYPE
+   Manejador; (* Opaco *)
+   
+   
+(************ Constructoras *************)
+
+PROCEDURE CrearManejador(): Manejador;
+(* Reserva memoria para el estado del sistema *)
+
+
+
+(************ Comandos ******************)
+
+PROCEDURE IngresarCentro (id: TIdCDP; pais, ciudad: TCiudadPais;
+                          capacidad: CARDINAL; VAR m: Manejador);
+(* Crea un nuevo CDP en el sistema de acuerdo a los parametros indicados.
+
+   En caso de exito imprime el mensaje MSG_103.
+   En caso que ya exista el centro imprime el mensaje MSG_104. *)
+
+
+PROCEDURE IngresarTramo (origen, destino: TIdCDP; costo: CARDINAL;
+                         VAR m: Manejador);
+(* Se da de alta en el sistema un nuevo tramo, con los CDP Origen y Destino
+   recibidos como parametros. Debe establecerse tambien  el costo requerido,
+   para alcanzar el CDP Destino desde el CDP Origen. El costo debe ser un numero
+   natural.
+
+   En caso de exito imprime el mensaje MSG_105.
+   En caso que no exista el CDP 'origen' imprime el mensaje MSG_106.
+   En caso que no exista el CDP 'destino' imprime el mensaje MSG_107.
+   En caso que ya exista el tramo imprime el mensaje MSG_108. *)
+
+
+PROCEDURE IngresarPaquete (id: TIdPaquete; origen, destino: TIdCDP;
+                           maxSaltos: CARDINAL; fPrio: Parametro; 
+                           VAR m: Manejador);
+(* Da de alta en el sistema un nuevo paquete. El paquete es asignado al CDP
+   'origen', por lo que, debe decrementarse su capacidad actual. El sistema debe
+   calcular la ruta de CDPs mas corta entre el CDP 'origen' y el CDP 'destino', 
+   sera esta la ruta que seguira el paquete para alcanzar el destino.
+
+   En caso de exito imprime el mensaje MSG_109.
+   En caso que ya exista un paquete con el mismo identificador imprime el
+   mensaje MSG_110.
+   En caso que no exista el CDP 'origen' imprime el mensaje MSG_106.
+   En caso que no exista el CDP 'destino' imprime el mensaje MSG_107.
+   En caso que la capacidad del CDP 'origen' sea 0 imprime el mensaje MSG_112. 
+   En caso que no exista una ruta entre 'origen' y 'destino' imprime
+   el mensaje MSG_122.
+*)
+
+
+PROCEDURE ProcesarPaquete (id: TIdPaquete; VAR m: Manejador);
+(* De ser posible, mueve el paquete al siguiente CDP de su ruta y si llega al
+   destino lo elimina del sistema. 
+   Se deben actualizar los registros de capacidad actual del CDP Origen 
+   y del CDP Destino.
+
+   En caso de exito imprime el mensaje MSG_115 si el paquete llego al destino
+   o el mensaje MSG_113 si no llego.
+   En caso que no exista un paquete con el identificador imprime 
+   el mensaje MSG_114.
+   En caso que el tramo que conecta con el proximo CDP ya no existe en el
+   sistema imprime el mensaje MSG_111.
+   En caso que la capacidad del proximo CDP sea cero imprime el mensaje MSG_112.
+*)
+
+
+PROCEDURE GenerarCPrioPaquetes (id: TIdCDP; m: Manejador): CPrioPaquetes;
+(* Retorna una cola de prioridad  (implementada como un 4-ary heap)
+   que contiene hasta MAXHEAP paquetes asignados al CDP 
+   ingresado como parametro, con sus respectivos valores de prioridad.
+   
+   Este procedimiento es auxiliar a ProcesarPaquetesCentro.
+*)
+
+
+PROCEDURE ProcesarPaquetesCentro (id: TIdCDP; VAR m: Manejador);
+(* Se procesan hasta MAXHEAP paquetes asignados al CDP ingresado como parametro.
+   Si la cantidad de paquetes en el CDP es mayor a MAXHEAP, los que se 
+   eligen para procesar son los primeros MAXHEAP en orden ascendente del 
+   identificador. 
+   El orden en que se procesan los paquetes es el determinado por sus valores
+   de prioridad (ascendente).
+   
+   En caso que no exista el CDP 'id' imprime el mensaje MSG_106.
+   En otro caso imprime en el orden en que son procesados:
+identificador - Mensaje
+   donde 'Mensaje' puede ser uno de los mensajes:  MSG_111, MSG_112, MSG_113, 
+   MSG_115. 
+   Si no hay ningun paquete a procesar se imprime un fin de linea. *)   
+
+
+PROCEDURE RemoverTramo (origen, destino: TIdCDP; VAR m: Manejador);
+(* Se elimina del sistema el tramo identificado por los identificadores de los
+   CDP origen y destino.
+
+   En caso de exito imprime el mensaje MSG_116.
+   En caso que no exista el CDP 'origen' imprime el mensaje MSG_106.
+   En caso que no exista el CDP 'destino' imprime el mensaje MSG_107.
+   En caso que no exista el tramo imprime el mensaje MSG_111. *)
+
+
+PROCEDURE RecalcularRuta (id: TIdPaquete; VAR m: Manejador);
+(* Se vuelve a generar la ruta para el paquete ingresado como parametro desde
+   el CDP donde se encuentra actualmente hasta su destino, sin pasar por el CDP
+   siguiente en la ruta actual.
+   Si la nueva ruta no se puede calcular, la ruta actual permanece incambiada.
+
+   En caso de exito imprime el mensaje MSG_117.
+   En caso que no exista un paquete con el identificador imprime 
+   el mensaje MSG_114.
+   En caso que no se encuentre una ruta que cumpla las condiciones se imprime 
+   el mensaje MSG_122. *)
+   
+   
+
+
+(************ Listados ******************)
+
+PROCEDURE ListarCDPs(m: Manejador);
+(*  Se imprime la informacion de cada CDP del sistema en orden creciente.
+    Si no hay CDPs en el sistema se imprime el mensaje MSG_119.
+      
+*)
+
+PROCEDURE ListarPaquetes (m: Manejador);
+(* Se imprime los identificadores de cada Paquete del sistema de acuerdo
+   al orden especificado en el modulo ABBPaquetes.
+   Si no hay paquetes ingresados en el sistema se imprime el mensaje MSG_120. 
+*)
+
+PROCEDURE ListarTramos (m: Manejador);
+(* Se imprime el origen-destino de cada tramo del sistema.
+   La lista impresa esta ordenada primeramente en orden creciente de origen.
+   Luego por cada origen, se imprime en orden creciente de destino.
+   Luego de imprimir cada origen-destino, se imprime un fin de linea, salvo 
+   en el ultimo tramo donde NO se imprime un fin de linea.
+   Si no hay tramos ingresados en el sistema se imprime el mensaje MSG_121.
+*)
+
+PROCEDURE ImprimirRutasOrigenDestino(origen, destino: TIdCDP; 
+                                     maxSaltos: CARDINAL; m : Manejador);
+(* Se imprime las rutas entre 'origen' y 'destino' segun se especifica en el 
+   modulo Rutas. Antes se imprime un nueva línea.
+
+   En caso que no exista el CDP 'origen' imprime el mensaje MSG_106.
+   En caso que no exista el CDP 'destino' imprime el mensaje MSG_107.
+   En caso que no exista ninguna ruta que cumpla las condiciones se imprime 
+   el mensaje MSG_122.
+*)
+
+PROCEDURE ImprimirRutaOptimaOrigenDestino(origen, destino: TIdCDP; 
+                                          maxSaltos: CARDINAL; m : Manejador);
+(* Se imprime la ruta OPTIMA entre origen y destino segun se especifica en el 
+   modulo Ruta.
+
+   En caso que no exista el CDP 'origen' imprime el mensaje MSG_106.
+   En caso que no exista el CDP 'destino' imprime el mensaje MSG_107.
+   En caso que no exista ninguna ruta que cumpla las condiciones se imprime 
+   el mensaje MSG_122.
+   En caso de no exista mas de un elemento a la vez, se imprime solamente
+   el primer error que ocurriera de acuerdo al orden establecido anteriormente.
+*)
+
+
+(************ Informacion ***************)
+ 
+
+PROCEDURE InfoCDP (idCDP: TIdCDP; m: Manejador);
+(* Se imprime la informacion del CDP 'idCDP'.
+
+   En caso que no exista el CDP 'id' imprime el mensaje MSG_106. 
+*)
+
+PROCEDURE InfoPaquete (idP: TIdPaquete; m : Manejador); 
+(* Se imprime la informacion del paquete 'idP'.
+
+   En caso que no exista un paquete con el identificador 
+   imprime el mensaje MSG_114. 
+*)
+
+PROCEDURE InfoTramo (origen, destino: TIdCDP; m : Manejador );
+(* Se imprime la informacion del tramo identificado por los CDPs 
+   'origen' y 'destino'.
+
+   En caso que no exista el CDP 'origen' imprime el mensaje MSG_106.
+   En caso que no exista el CDP 'destino' imprime el mensaje MSG_107.
+   En caso que no exista el tramo imprime el mensaje MSG_111. 
+   En caso de no exista mas de un elemento a la vez, se imprime solamente
+   el primer error que ocurriera de acuerdo al orden establecido anteriormente.
+*)
+
+PROCEDURE ImprimirCDPActualPaquete(idP: TIdPaquete; m : Manejador);
+(* Se imprime el identificador del CDP actual donde se encuentra el paquete.
+
+   Si el paquete se encuentra en el origen se imprime el mensaje MSG_123.
+   Si el paquete se encuentra en transito se imprime el mensaje MSG_125
+   seguido del identificador del centro y nueva linea. 
+   En caso que no exista un paquete con el identificador 
+   imprime el mensaje MSG_114.
+*)
+
+
+(************ Persistencia **************)
+
+PROCEDURE GuardarEstado(nomArch : NombreArchivo; m : Manejador);
+
+PROCEDURE CargarEstado(nomArch : NombreArchivo; VAR m : Manejador);
+
+
+(************ Destructoras **************)
+
+PROCEDURE DestruirManejador (VAR m: Manejador);
+(* Libera la memoria reservada. *)
+
+END Manejador.

@@ -1,0 +1,59 @@
+Bienvenidos a InCorreoProg2
+version 1.0
+InCo-FIng-UdelaR
+
+1> El CDP fue dado de alta
+2> El CDP fue dado de alta
+3> El CDP fue dado de alta
+4> El CDP fue dado de alta
+5> El tramo fue dado de alta
+6> El tramo fue dado de alta
+7> El tramo fue dado de alta
+8> El tramo fue dado de alta
+9> El paquete fue dado de alta
+10> El paquete fue dado de alta
+11> El paquete fue dado de alta
+12> El paquete fue dado de alta
+13> El paquete fue procesado y ha llegado a su destino
+14> El paquete fue procesado y ha llegado a su destino
+15> El paquete fue procesado
+16> El tramo fue dado de baja
+17> La ruta ha sido recalculada
+18> 4 - El paquete fue procesado
+19> 2 - El paquete fue procesado
+20> AR BR PY UY 
+21> 2
+ 4
+22> AR-BR
+BR-PY
+UY-AR
+23> 
+PY
+ BR
+  AR
+   UY
+24> 3
+1
+UY
+AR
+BR
+25> UY
+Uruguay
+Montevideo
+100
+26> 4
+[ costo ]
+3
+4
+3
+UY
+AR
+BR
+PY
+27> UY
+AR
+30
+28> El paquete se encuentra en transito en el centro BR
+29> Los datos han sido guardados
+30> Los datos han sido cargados
+31> Fin!

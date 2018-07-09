@@ -1,0 +1,32 @@
+CENTROS:
+3
+A
+Uruguay
+A
+3
+B
+Uruguay
+B
+1
+C
+Uruguay
+C
+1
+TRAMOS:
+0
+PAQUETES:
+2
+paq1
+[ costo ]
+2
+2
+1
+A
+B
+paq2
+[ saltos + 3 ]
+14
+2
+1
+A
+C
